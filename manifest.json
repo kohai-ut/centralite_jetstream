@@ -1,0 +1,9 @@
+{
+  "domain": "centralite-jetstream",
+  "name": "Centralite Jetstream Integration",
+  "version": "2021.3.8",
+  "documentation": "https://github.com/kohai-ut/centralite_jetstream",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@pashar1", "@kohai-ut"]
+}
