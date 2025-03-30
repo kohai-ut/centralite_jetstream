@@ -10,13 +10,13 @@ Someone asked for details on what to do with the code. I set this up directly in
  
 This is a bit of a rough version that never got fully polished. I can't remember if I ever tested the scenes code. I've contemplated trying out some AI to help finish it up as my python skills are minimal. It's been a long time since I set this up on my rpi with home assistant -- this is what I have going on mine.
 
-1. I put the github files/repo under folder: custom_components/centralite-jestream
+1. I put the github files/repo under the home assistant folder: custom_components/centralite-jestream
 
-NOTE: I then edited yaml files to customize for my setup AND there are some edits to the python code. I do not enable ALL of my switches/loads/scenes. I only set up those I want to show up in HA.
+NOTE: I then edited yaml files below to customize for my setup AND there are some edits to the python code. I do not enable ALL of my switches/loads/scenes. I only set up those I want to show up in HA.
 
-2. Edit pycentralite.py to enter the lights/loads/switches/etc numbers. The numbers to enter are the ones from the jetstream system config, see example below.  Look for LOADS_LIST, SWITCHES_LIST, ACTIVE_SCENES_DICT
+2. Edit pycentralite.py to enter the lights/loads/switches/etc numbers in the right variables. The numbers to enter are the ones from the jetstream system config, see example below.  Look for LOADS_LIST, SWITCHES_LIST, ACTIVE_SCENES_DICT
 
-3. Edit the homeassistant/configuration.yaml and add or merge this stuff in correctly:
+3. Edit the homeassistant/configuration.yaml and add or merge this stuff in the right places in the yaml file:
 ```
 # Centralite CR for third party integration must be turned on in the Elegance system/software 
 centralite-jetstream:
