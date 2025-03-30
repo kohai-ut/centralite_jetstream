@@ -19,7 +19,7 @@ Edit pycentralite.py to enter the lights/loads/switches/etc numbers. Look for LO
 (The numbers to enter are the ones from the jetstream system config, see below)
 
 Edit the homeassistant/configuration.yaml and add or merge this stuff in correctly:
-
+```
 # Centralite CR for third party integration must be turned on in the Elegance system/software 
 centralite-jetstream:
   # using /dev/ttyUSB0 is not persistent between boots
@@ -44,13 +44,13 @@ homeassistant:
         - 192.168.1.0/24
     - type: homeassistant
   customize: !include centralite_desc.yaml
-
+```
 
 
 
 
 Ok, then create a file centralite_desc.yaml
-
+```
   light.jsl001:
     friendly_name: "Jetstream E BEDROOM"
   light.jsl020:
@@ -65,6 +65,6 @@ Ok, then create a file centralite_desc.yaml
     friendly_name: "Blah Switch 001"
   switch.jssw01401:
     friendly_name: "Blah Switch 014 Btn 1"
-
+```
 
 In my file I have both jetstream and elegance systems so this is the snippet for my jetstream that I use in HA. The 001 in light.jsl001 is aligned with the jetstream system's ID for that light. I have a jetstream/zigbee style dongle to communicate and configure the jetstream system and see the configuration and save it to a text file for browsing. I assume people can figure out what the numbers should be. Also, the documentation for jestream is available online.
