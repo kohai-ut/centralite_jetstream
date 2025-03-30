@@ -6,19 +6,17 @@ to connect my Raspberry Pi 4 to the bridge/device.
 
 How To (rough):
 
-Someone asked for details on what to do with the code. I have only manually set this up in the file directories and edited the yaml to make it work.
+Someone asked for details on what to do with the code. I set this up directly in the home assistant directories and edited the yaml to make it work.
  
-This is a bit of a rough version that never got fully polished. I can't remember if I ever tested the scenes code. I've contemplated trying out some AI to help finish it up as my python skills are minimal. It's been a long time since I set this up on my rpi -- this is what I have going on mine.
+This is a bit of a rough version that never got fully polished. I can't remember if I ever tested the scenes code. I've contemplated trying out some AI to help finish it up as my python skills are minimal. It's been a long time since I set this up on my rpi with home assistant -- this is what I have going on mine.
 
-I put the github files/repo under folder: custom_components/centralite-jestream
+1. I put the github files/repo under folder: custom_components/centralite-jestream
 
-I then edited yml files to customize for my setup AND there are some edits to the python code. I do not enable ALL of my switches/loads/scenes. I only set up those I want to show up in HA.
+NOTE: I then edited yaml files to customize for my setup AND there are some edits to the python code. I do not enable ALL of my switches/loads/scenes. I only set up those I want to show up in HA.
 
-Edit pycentralite.py to enter the lights/loads/switches/etc numbers. Look for LOADS_LIST, SWITCHES_LIST, ACTIVE_SCENES_DICT
+2. Edit pycentralite.py to enter the lights/loads/switches/etc numbers. The numbers to enter are the ones from the jetstream system config, see example below.  Look for LOADS_LIST, SWITCHES_LIST, ACTIVE_SCENES_DICT
 
-(The numbers to enter are the ones from the jetstream system config, see below)
-
-Edit the homeassistant/configuration.yaml and add or merge this stuff in correctly:
+3. Edit the homeassistant/configuration.yaml and add or merge this stuff in correctly:
 ```
 # Centralite CR for third party integration must be turned on in the Elegance system/software 
 centralite-jetstream:
@@ -49,7 +47,8 @@ homeassistant:
 
 
 
-Ok, then create a file centralite_desc.yaml
+4. Ok, then create a file centralite_desc.yaml in the same directory as configuration.yaml
+   
 ```
   light.jsl001:
     friendly_name: "Jetstream E BEDROOM"
@@ -68,3 +67,6 @@ Ok, then create a file centralite_desc.yaml
 ```
 
 In my file I have both jetstream and elegance systems so this is the snippet for my jetstream that I use in HA. The 001 in light.jsl001 is aligned with the jetstream system's ID for that light. I have a jetstream/zigbee style dongle to communicate and configure the jetstream system and see the configuration and save it to a text file for browsing. I assume people can figure out what the numbers should be. Also, the documentation for jestream is available online.
+
+5. Restart HA and watch the log files.  You should be able to see logs showing up in the home-assistant.log file.
+
