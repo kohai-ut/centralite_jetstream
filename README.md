@@ -4,6 +4,8 @@
 My Centralite Jetstream system has an RS232 to Zigbee bridge/device sold by Centralite. I'm using a USB to serial adapter
 to connect my Raspberry Pi 4 to the bridge/device.  
 
+UPDATE: June 2025. I have added code to support for the HA unique_id attribute which is needed for voice assistant support in order to set an verbal alias on a device. 
+
 How To (rough):
 
 Someone asked for details on what to do with the code. I set this up directly in the home assistant directories and edited the yaml to make it work.
@@ -47,7 +49,7 @@ homeassistant:
 
 
 
-4. Ok, then create a file centralite_desc.yaml in the same directory as configuration.yaml
+4. Ok, then create a file centralite_desc.yaml in the same directory as configuration.yaml (UPDATE June 2025: these can now be set in the HA web UI)
    
 ```
   light.jsl001:
