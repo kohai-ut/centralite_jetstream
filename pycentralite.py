@@ -66,7 +66,8 @@ class Centralite:
    
    
    # friendly_name defined in YAML;  add the loads/light IDs you want in HA
-   LOADS_LIST = [ 1, 2, 3 ]
+   # 
+   LOADS_LIST = [ 1, 20, 25, 29, 30 ]
    #LOADS_LIST = [ 1 ]
 
    

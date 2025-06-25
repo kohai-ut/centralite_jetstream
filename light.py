@@ -64,8 +64,14 @@ class CentraliteLight(LJDevice, LightEntity):
         #self._state = None
         self._state = False
         self._name = controller.get_load_name(lj_device) 
-        self._friendly_name = "Horse"
+        #self._friendly_name = "Horse"
         _LOGGER.debug("    init of the light self._name is %s", self._name)
+        
+        self._attr_unique_id = f"jetstream.{self._name}"
+        
+        _LOGGER.debug("    init of the light self._name is %s", self._name)
+        _LOGGER.debug("    init of the light self._attr_unique_id is %s", self._attr_unique_id)        
+        
         super().__init__(lj_device, controller, self._name)
         
         LJDevice.__init__(self,lj_device,controller,self._name)
