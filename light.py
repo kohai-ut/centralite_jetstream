@@ -8,7 +8,7 @@ Checklist for creating a platform: https://developers.home-assistant.io/docs/cre
 import logging
 
 from homeassistant.components.light import (
-    ATTR_BRIGHTNESS, SUPPORT_BRIGHTNESS, ENTITY_ID_FORMAT, LightEntity)
+    ATTR_BRIGHTNESS, ColorMode, ENTITY_ID_FORMAT, LightEntity)
 
 #from custom_components import centralite
 #from custom_components.centralite import (
@@ -54,7 +54,10 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
 class CentraliteLight(LJDevice, LightEntity):
     """Representation of a single Centralite light."""
-    
+
+    _attr_color_mode = ColorMode.BRIGHTNESS
+    _attr_supported_color_modes = {ColorMode.BRIGHTNESS}
+
     def __init__(self, lj_device, controller):
         """Initialize a Centralite light."""
         _LOGGER.debug("init of the light for %s", lj_device)
@@ -106,11 +109,6 @@ class CentraliteLight(LJDevice, LightEntity):
         """
         self.schedule_update_ha_state()
         #self.schedule_update_ha_state(True)
-
-    @property
-    def supported_features(self):
-        """Flag supported features."""
-        return SUPPORT_BRIGHTNESS
 
     @property
     def name(self):
